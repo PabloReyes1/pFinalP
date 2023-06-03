@@ -4,15 +4,22 @@
  */
 package pkgpackage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class PackageManagementSystem {
     private static List<Paquete> packages = new ArrayList<>();
+    
+    
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         int option = 0;
+        
+        
 
         while (option != 9) {
             option = Integer.parseInt(JOptionPane.showInputDialog(
@@ -29,7 +36,9 @@ public class PackageManagementSystem {
 
             switch (option) {
                 case 1:
+                    loadArchivo();
                     registerPackage();
+                    
                     break;
                 case 2:
                     classifyPackages();
@@ -271,5 +280,15 @@ public class PackageManagementSystem {
         }
     }
 }
+    
+    
+    private static void loadArchivo() throws IOException{
+    
+    
+     archivoCSV Archivo =new archivoCSV();
+        Archivo.leerArchivo("C:\\Users\\jdrey\\Downloads\\datos_paqueteria2.csv");
+    
+    
+    }
 }
 
