@@ -21,7 +21,7 @@ public class PackageManagementSystem {
         
         
 
-        while (option != 9) {
+        while (option != 10) {
             option = Integer.parseInt(JOptionPane.showInputDialog(
                     "Menu:\n" +
                             "1. Registrar un paquete\n" +
@@ -32,11 +32,12 @@ public class PackageManagementSystem {
                             "6. Consultar registro de paquetes ingresados\n" +
                             "7. Consultar estado de envío de un paquete\n" +
                             "8. Consultar paquetes no clasificados\n" +
-                            "9. Salir"));
+                            "9. Cargar CSV\n"+
+                            "10. Salir"));
 
             switch (option) {
                 case 1:
-                    loadArchivo();
+                    
                     registerPackage();
                     
                     break;
@@ -61,7 +62,11 @@ public class PackageManagementSystem {
                 case 8:
                     displayUnclassifiedPackages();
                     break;
+                    
                 case 9:
+                    loadArchivo();
+                    break;
+                case 10 :
                     System.exit(0);
                     break;
                 default:
